@@ -1,0 +1,19 @@
+Home Service
+
+Appliances Type
+Job Type
+Schedule Date
+Payment Date
+Payment Amount
+
+
+Walk In
+
+Appliances Type
+Job Type
+Date Received
+Date Claimed
+Payment Date
+Payment Amount
+
+
