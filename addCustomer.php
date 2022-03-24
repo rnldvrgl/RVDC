@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
    $sql = "INSERT INTO `customer_details`(`first_name`, `last_name`, `address`, `contact_number`) VALUES ('$fname','$lname','$address','$cnumber')";
    $con->query($sql) or die($con->error);
 
-   echo header("Location: add.php");
+   echo header("Location: addCustomer.php");
 }
 
 ?>
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
                <div class="bg-white rounded-lg shadow-sm p-5">
                   <div id="nav-tab-card" class="tab-pane fade show active">
                      <!-- <p class="alert alert-success">Some text success or error</p> -->
-                     <form action="add.php" method="post">
+                     <form action="addCustomer.php" method="post">
 
                         <div class="form-group mb-2">
                            <label for="firstname">First Name</label>

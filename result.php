@@ -7,8 +7,8 @@ if (!isset($_SESSION)) {
 
 include_once("connections/connection.php");
 $con = connection();
-
-$sql = "SELECT * FROM customer_details";
+$search = $_GET['search'];
+$sql = "SELECT * FROM customer_details WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR contact_number LIKE '%$search%'";
 $students = $con->query($sql) or die($con->error);
 $row = $students->fetch_assoc();
 
