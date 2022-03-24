@@ -35,7 +35,7 @@ $row = $students->fetch_assoc();
       }
       ?>
       <h1>Customers Information System</h1>
-      <a type="button" class="btn btn-success mb-2" href="add.php">Add New</a>
+      <a type="button" class="btn btn-success mb-2" href="addCustomer.php">Add New</a>
       <a type="button" class="btn btn-dark mb-2" href="logout.php">Logout</a>
       <div class="table-responsive-sm">
          <table class="table table-bordered">

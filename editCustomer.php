@@ -3,16 +3,24 @@
 include_once("connections/connection.php");
 $con = connection();
 
+$id = $_GET['ID'];
+
+$sql = "SELECT * FROM customer_details WHERE id ='$id'";
+$students = $con->query($sql) or die($con->error);
+$row = $students->fetch_assoc();
+
+
+
 if (isset($_POST['submit'])) {
 
    $fname = $_POST['firstname'];
    $lname = $_POST['lastname'];
    $address = $_POST['address'];
    $cnumber = $_POST['contact_number'];
-   $sql = "INSERT INTO `customer_details`(`first_name`, `last_name`, `address`, `contact_number`) VALUES ('$fname','$lname','$address','$cnumber')";
+   $sql = "UPDATE `customer_details` SET `first_name` = '$fname', `last_name` = '$lname', `address` = '$address', `contact_number` = '$cnumber' WHERE id = '$id'";
    $con->query($sql) or die($con->error);
 
-   echo header("Location: add.php");
+   echo header("Location: customerDetails.php?ID=" . $id);
 }
 
 ?>
@@ -37,31 +45,31 @@ if (isset($_POST['submit'])) {
                <div class="bg-white rounded-lg shadow-sm p-5">
                   <div id="nav-tab-card" class="tab-pane fade show active">
                      <!-- <p class="alert alert-success">Some text success or error</p> -->
-                     <form action="add.php" method="post">
+                     <form action="" method="post">
 
                         <div class="form-group mb-2">
                            <label for="firstname">First Name</label>
-                           <input type="text" name="firstname" placeholder="Enter First Name ..." required class="form-control" value="">
+                           <input type="text" name="firstname" placeholder="Enter First Name ..." required class="form-control" value="<?php echo $row['first_name']; ?>">
                         </div>
 
                         <div class="form-group mb-2">
                            <label for="lastname">Last Name</label>
-                           <input type="text" name="lastname" placeholder="Enter Last Name ..." required class="form-control">
+                           <input type="text" name="lastname" placeholder="Enter Last Name ..." required class="form-control" value="<?php echo $row['last_name']; ?>">
                         </div>
 
                         <div class="form-group mb-2">
                            <label for="address">Address</label>
-                           <textarea class="form-control" name="address" rows="2"></textarea>
+                           <textarea class="form-control" name="address" rows="2"><?php echo $row['address']; ?></textarea>
                         </div>
 
                         <div class="form-group mb-3">
                            <label for="contact_number">Contact Number</label>
-                           <input type="text" name="contact_number" pattern="^(09|\+639)\d{9}$" placeholder="Enter Contact Number ..." required class="form-control">
+                           <input type="text" name="contact_number" pattern="^(09|\+639)\d{9}$" placeholder="Enter Contact Number ..." required class="form-control" value="<?php echo $row['contact_number']; ?>">
                         </div>
 
                         <div class="form-group">
-                           <a type="button" class="btn btn-danger btn-block shadow-sm" href="dashboard.php">Cancel</a>
-                           <input type="submit" name="submit" value="Add Customer" class="btn btn-success shadow-sm"></input>
+                           <a type="button" class="btn btn-danger btn-block shadow-sm" href="customerDetails.php?ID=<?php $id ?>">Cancel</a>
+                           <input type="submit" name="submit" value="Update Info" class="btn btn-success shadow-sm"></input>
                         </div>
                   </div>
                   </form>

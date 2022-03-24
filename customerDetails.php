@@ -35,9 +35,14 @@ $row = $students->fetch_assoc();
 <body>
    <div class="container-fluid">
       <h1>Customer Details</h1>
-      <a type="button" class="btn btn-warning mb-2" href="editCustomer.php">Edit Details</a>
-      <a type="button" class="btn btn-danger mb-2" href="logout.php">Delete</a>
-      <a type="button" class="btn btn-dark mb-2" href="logout.php">Logout</a>
+
+      <form action="deleteCustomer.php" method="post">
+         <a type="button" class="btn btn-warning mb-2" href="editCustomer.php?ID=<?php echo $row['id']; ?>">Edit Details</a>
+         <button type="submit" class="btn btn-danger mb-2" href="deleteCustomer.php" name="deleteCustomer">Delete</button>
+         <input type="hidden" name="ID" id="" value="<?php echo $row['id']; ?>">
+         <a type="button" class="btn btn-dark mb-2" href="logout.php">Logout</a>
+      </form>
+
       <table class="table table-bordered">
          <thead>
             <tr>
