@@ -11,6 +11,8 @@ Walk In
 
 Appliances Type
 Job Type
+Technician
+Received By
 Date Received
 Date Claimed
 Payment Date

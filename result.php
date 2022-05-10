@@ -58,9 +58,9 @@ $row = $students->fetch_assoc();
                      <td><?php echo $row['last_name'] ?></td>
                      <td><?php echo $row['contact_number'] ?></td>
                      <td class="text-center">
-                        <a type="button" class="btn btn-block btn-info" href="customerDetails.php?ID=<?php echo $row['id']; ?>">View Details</a>
-                        <!-- <a type="button" class="btn btn-block btn-info" href="customerDetails.php?ID=<?php echo $row['id']; ?>">View Walk Service</a> -->
-                        <!-- <a type="button" class="btn btn-block btn-info" href="customerDetails.php?ID=<?php echo $row['id']; ?>">View Home Service</a> -->
+                        <a type="button" class="btn btn-block btn-info" href="customerDetails.php?id=<?php echo $row['id']; ?>">View Details</a>
+                        <!-- <a type="button" class="btn btn-block btn-info" href="customerDetails.php?id=<?php echo $row['id']; ?>">View Walk Service</a> -->
+                        <!-- <a type="button" class="btn btn-block btn-info" href="customerDetails.php?id=<?php echo $row['id']; ?>">View Home Service</a> -->
                      </td>
                   </tr>
                <?php } while ($row = $students->fetch_assoc()); ?>
